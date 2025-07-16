@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 
 import { type Metadata } from "next";
-import { Geist, Outfit } from "next/font/google";
+import { Geist, Outfit, Gloock } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "L'art du Pain - Panadería Francesa | Lo artesanal es lo nuestro",
@@ -43,11 +43,20 @@ const outfit = Outfit({
   variable: "--font-outfit",
 });
 
+const gloock = Gloock({
+  subsets: ["latin"],
+  variable: "--font-gloock",
+  weight: "400",
+});
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" className={`${geist.variable} ${outfit.variable}`}>
+    <html
+      lang="es"
+      className={`${geist.variable} ${outfit.variable} ${gloock.variable}`}
+    >
       <body>{children}</body>
     </html>
   );

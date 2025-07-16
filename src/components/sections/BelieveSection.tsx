@@ -4,30 +4,24 @@ import Image from "next/image";
 
 export const BelieveSection: React.FC = () => {
   return (
-    <section className="bg-[#f5f1eb] px-6 py-16">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          {/* Content */}
-          <div className="text-left">
-            {/* Main Title */}
-            <h2 className="font-outfit mb-8 text-4xl leading-tight font-bold text-blue-800 lg:text-6xl">
-              Creemos
-              <br />
-              en el poder
-            </h2>
+    <section className="relative bg-[#f5f1eb] px-6 py-16">
+      <div className="relative mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
+          <div className="relative">
+            <div className="mb-4">
+              <h2 className="font-outfit text-4xl leading-tight font-bold text-blue-800 lg:text-8xl">
+                Creemos en el poder
+              </h2>
+            </div>
 
             {/* Experience Badge */}
             <div className="mb-8">
-              <p className="font-outfit text-2xl text-blue-800 italic lg:text-3xl">
-                (10 años de
-                <br />
-                experiencia)
-              </p>
+              <p className="font-outfit text-2xl text-blue-800 italic lg:text-3xl"></p>
             </div>
 
             {/* Description */}
             <div className="mb-8 space-y-4">
-              <p className="font-outfit text-lg leading-relaxed text-blue-800">
+              <p className="font-outfit max-w-md text-lg leading-relaxed text-blue-800">
                 Si quieres sentirte como en Francia, estos son 2 postres que sí
                 o sí, tienes que probar
               </p>
@@ -52,34 +46,22 @@ export const BelieveSection: React.FC = () => {
 
             {/* See More Button */}
             <Button
-              variant="outline"
+              variant="secondary"
               size="md"
-              className="font-outfit border-2 border-blue-800 px-8 py-3 text-lg font-semibold text-blue-800 transition-colors hover:bg-blue-800 hover:text-white"
+              className="font-outfit border-2 border-blue-800 bg-transparent px-8 py-3 text-lg font-semibold text-blue-800! transition-colors hover:bg-blue-800! hover:text-white!"
             >
               Ver más
             </Button>
-
-            {/* Quality Badge */}
-            <div className="mt-8">
-              <div className="inline-block">
-                <p className="font-outfit text-sm tracking-wider text-blue-800 uppercase">
-                  CALIDAD:
-                </p>
-                <p className="font-outfit text-lg font-bold text-blue-800">
-                  10/10
-                </p>
-              </div>
-            </div>
           </div>
 
-          {/* Product Image */}
+          {/* Columna Derecha */}
           <div className="relative">
-            {/* Right side content */}
+            {/* "de gran café" - Parte superior derecha */}
             <div className="mb-8 text-right">
               <h3 className="font-outfit text-4xl leading-tight font-bold text-blue-800 lg:text-6xl">
                 de gran
                 <br />
-                <span className="italic">café</span>
+                <span className="font-gloock italic">café</span>
               </h3>
             </div>
 
@@ -110,11 +92,12 @@ export const BelieveSection: React.FC = () => {
               </div>
             </div>
 
+            {/* "y frescos pasteles" - Parte inferior derecha */}
             <div className="text-right">
-              <h3 className="font-outfit text-4xl leading-tight font-bold text-blue-800 lg:text-6xl">
+              <h3 className="font-outfit text-4xl leading-tight font-bold text-blue-800 lg:text-7xl">
                 y frescos
                 <br />
-                <span className="italic">pasteles.</span>
+                <span className="font-gloock italic">pasteles.</span>
               </h3>
             </div>
 
@@ -129,14 +112,14 @@ export const BelieveSection: React.FC = () => {
                 </p>
               </div>
             </div>
-
-            {/* Bottom tagline */}
-            <div className="mt-8 text-center">
-              <p className="font-outfit text-lg font-semibold text-blue-800">
-                Recién hecho como debe ser. 🫶🏻
-              </p>
-            </div>
           </div>
+        </div>
+
+        {/* Bottom tagline - Centrado al final */}
+        <div className="mt-12 text-center">
+          <p className="font-outfit text-lg font-semibold text-blue-800">
+            Recién hecho como debe ser. 🫶🏻
+          </p>
         </div>
       </div>
     </section>

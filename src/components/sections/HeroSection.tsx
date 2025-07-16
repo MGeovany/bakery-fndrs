@@ -6,9 +6,9 @@ export const HeroSection: React.FC = () => {
   return (
     <section className="px-6 py-16">
       <div className="mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+        <div className="grid grid-cols-1 items-center justify-items-center gap-12 lg:grid-cols-2">
           {/* Product Image */}
-          <div className="relative">
+          <div className="relative flex justify-center">
             {/* Bread Image Placeholder */}
             <Image
               src={"/best-option.png"}
@@ -20,16 +20,16 @@ export const HeroSection: React.FC = () => {
           </div>
 
           {/* Content */}
-          <div className="text-center lg:text-left">
-            <h1 className="font-outfit mb-6 text-4xl leading-[.8] font-bold text-blue-800 lg:text-8xl">
+          <div className="text-left">
+            <h1 className="font-gloock mb-6 text-4xl leading-[1] font-bold text-blue-800 lg:text-8xl">
               Lo artesanal
               <br />
               es lo
               <br />
-              <span className="text-blue-800">nuestro</span>
+              <span className="font-gloock text-blue-800">nuestro</span>
             </h1>
 
-            <p className="font-outfit mx-auto mb-8 max-w-md text-lg text-blue-800 lg:mx-0">
+            <p className="font-outfit mb-8 max-w-md text-lg text-blue-800">
               Desde 2014, creamos panes y pasteles con amor, tradición francesa
               y los mejores ingredientes artesanales.
             </p>
