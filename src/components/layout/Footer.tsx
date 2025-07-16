@@ -294,13 +294,13 @@ export const Footer: React.FC = () => {
           {/* Social Media Icons */}
           <div
             ref={socialIconsRef}
-            className="mt-12 flex justify-center space-x-6"
+            className="mt-8 flex justify-center space-x-4 sm:mt-12 sm:space-x-6"
           >
             <a
               href="https://www.instagram.com/the.fndrs"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-white/10 p-3 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
+              className="rounded-full bg-white/10 p-2 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20 sm:p-3"
               aria-label="Síguenos en Instagram"
               onMouseEnter={(e) => {
                 gsap.to(e.currentTarget, {
@@ -319,13 +319,13 @@ export const Footer: React.FC = () => {
                 });
               }}
             >
-              <Instagram className="h-5 w-5" />
+              <Instagram className="h-4 w-4 sm:h-5 sm:w-5" />
             </a>
             <a
               href="https://www.linkedin.com/company/the-fndrs/"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-white/10 p-3 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
+              className="rounded-full bg-white/10 p-2 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20 sm:p-3"
               aria-label="Síguenos en LinkedIn"
               onMouseEnter={(e) => {
                 gsap.to(e.currentTarget, {
@@ -344,13 +344,13 @@ export const Footer: React.FC = () => {
                 });
               }}
             >
-              <Linkedin className="h-5 w-5" />
+              <Linkedin className="h-4 w-4 sm:h-5 sm:w-5" />
             </a>
             <a
               href="https://www.instagram.com/the.fndrs"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-white/10 p-3 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
+              className="rounded-full bg-white/10 p-2 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20 sm:p-3"
               aria-label="Síguenos en Facebook"
               onMouseEnter={(e) => {
                 gsap.to(e.currentTarget, {
@@ -369,13 +369,13 @@ export const Footer: React.FC = () => {
                 });
               }}
             >
-              <Facebook className="h-5 w-5" />
+              <Facebook className="h-4 w-4 sm:h-5 sm:w-5" />
             </a>
             <a
               href="https://www.instagram.com/the.fndrs"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-white/10 p-3 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
+              className="rounded-full bg-white/10 p-2 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20 sm:p-3"
               aria-label="Síguenos en Twitter"
               onMouseEnter={(e) => {
                 gsap.to(e.currentTarget, {
@@ -394,7 +394,7 @@ export const Footer: React.FC = () => {
                 });
               }}
             >
-              <Twitter className="h-5 w-5" />
+              <Twitter className="h-4 w-4 sm:h-5 sm:w-5" />
             </a>
             <a
               href="/sucursales"
@@ -425,10 +425,10 @@ export const Footer: React.FC = () => {
         {/* Bottom Footer */}
         <div
           ref={bottomFooterRef}
-          className="mt-8 flex flex-col items-center justify-between space-y-4 text-sm text-blue-800 lg:flex-row lg:space-y-0"
+          className="mt-6 flex flex-col items-center justify-between space-y-3 text-xs text-blue-800 sm:mt-8 sm:space-y-4 sm:text-sm lg:flex-row lg:space-y-0"
         >
           <p className="font-outfit">© L&apos;art du Pain 2025</p>
-          <div className="flex space-x-6">
+          <div className="flex flex-wrap justify-center space-x-4 sm:space-x-6">
             <a
               href="/terminos"
               className="font-outfit transition-colors hover:text-blue-600"

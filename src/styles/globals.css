@@ -115,6 +115,102 @@ body {
   overflow-x: hidden;
 }
 
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  /* Disable hover effects on touch devices */
+  .hover-disabled {
+    pointer-events: none;
+  }
+
+  /* Increase touch targets */
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* High DPI display optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Optimize for retina displays */
+  .crisp-edges {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Responsive typography utilities */
+.text-responsive-xs {
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+}
+
+@media (min-width: 640px) {
+  .text-responsive-xs {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+  }
+}
+
+.text-responsive-sm {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.25rem; /* 20px */
+}
+
+@media (min-width: 640px) {
+  .text-responsive-sm {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+  }
+}
+
+.text-responsive-base {
+  font-size: 1rem; /* 16px */
+  line-height: 1.5rem; /* 24px */
+}
+
+@media (min-width: 640px) {
+  .text-responsive-base {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
+  }
+}
+
+/* Responsive spacing utilities */
+.spacing-responsive-sm {
+  margin: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .spacing-responsive-sm {
+    margin: 1rem;
+  }
+}
+
+.spacing-responsive-md {
+  margin: 1rem;
+}
+
+@media (min-width: 640px) {
+  .spacing-responsive-md {
+    margin: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .spacing-responsive-md {
+    margin: 2rem;
+  }
+}
+
 /* Hide scrollbar on all containers */
 * {
   scrollbar-width: none; /* Firefox */

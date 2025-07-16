@@ -83,12 +83,11 @@ export const BelieveSection: React.FC = () => {
               <div className="absolute -top-2 -right-2 rotate-12 transform sm:-top-4 sm:-right-4">
                 <Image
                   src="/cheesecake.png"
-                  className="rounded-xl border-2 border-white shadow-lg sm:border-4"
+                  className="h-20 w-20 rounded-xl border-2 border-white shadow-lg sm:h-32 sm:w-32 sm:border-4 lg:h-36 lg:w-36"
                   alt="Cheesecake artesanal"
                   width={100}
                   height={100}
                   style={{ objectFit: "cover" }}
-                  className="h-20 w-20 rounded-xl border-2 border-white shadow-lg sm:h-32 sm:w-32 sm:border-4 lg:h-36 lg:w-36"
                 />
               </div>
             </div>
