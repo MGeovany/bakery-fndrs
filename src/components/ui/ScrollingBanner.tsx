@@ -10,6 +10,7 @@ import {
   Cookie,
   PersonStanding,
   Book,
+  TowerControl,
 } from "lucide-react";
 
 export const ScrollingBanner: React.FC = () => {
@@ -27,7 +28,7 @@ export const ScrollingBanner: React.FC = () => {
       text: "Lo Artesanal es lo Nuestro",
     },
     {
-      icon: Book,
+      icon: TowerControl,
       text: "Panadería Francesa desde 2014",
     },
     {
@@ -59,7 +60,7 @@ export const ScrollingBanner: React.FC = () => {
           return (
             <div
               key={index}
-              className="flex items-center space-x-3 px-12 text-blue-700"
+              className="flex items-center space-x-3 px-4 text-blue-700"
             >
               <IconComponent className="h-5 w-5 flex-shrink-0 text-blue-600" />
               <span className="font-outfit text-sm font-medium tracking-wide">
