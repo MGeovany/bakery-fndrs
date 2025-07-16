@@ -100,18 +100,6 @@ export const BelieveSection: React.FC = () => {
                 <span className="font-gloock italic">pasteles.</span>
               </h3>
             </div>
-
-            {/* Freshness Badge */}
-            <div className="mt-8 text-right">
-              <div className="inline-block">
-                <p className="font-outfit text-sm tracking-wider text-blue-800 uppercase">
-                  FRESCURA:
-                </p>
-                <p className="font-outfit text-lg font-bold text-blue-800">
-                  10/10
-                </p>
-              </div>
-            </div>
           </div>
         </div>
 

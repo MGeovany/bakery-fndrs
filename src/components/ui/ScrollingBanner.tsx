@@ -1,7 +1,16 @@
 "use client";
 
 import React from "react";
-import { Wheat, Clock, Heart, MapPin, Coffee, Cookie } from "lucide-react";
+import {
+  Wheat,
+  Clock,
+  Heart,
+  MapPin,
+  Coffee,
+  Cookie,
+  PersonStanding,
+  Book,
+} from "lucide-react";
 
 export const ScrollingBanner: React.FC = () => {
   const bannerItems = [
@@ -14,11 +23,11 @@ export const ScrollingBanner: React.FC = () => {
       text: "Creamos Memorias Deliciosas",
     },
     {
-      icon: Clock,
+      icon: PersonStanding,
       text: "Lo Artesanal es lo Nuestro",
     },
     {
-      icon: MapPin,
+      icon: Book,
       text: "Panadería Francesa desde 2014",
     },
     {

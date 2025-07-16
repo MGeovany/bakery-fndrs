@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Header,
   HeroSection,
@@ -5,15 +7,24 @@ import {
   ScrollingBanner,
   Footer,
 } from "@/components";
+import { SmoothScrollWrapper } from "@/components/layout/SmoothScrollWrapper";
+import { SectionTransition } from "@/components/ui/SectionTransition";
 
 export default function HomePage() {
   return (
-    <main className="bg-cream-200 min-h-screen">
-      <Header />
-      <HeroSection />
-      <ScrollingBanner />
-      <BelieveSection />
-      <Footer />
-    </main>
+    <SmoothScrollWrapper>
+      <main className="bg-cream-200 min-h-screen">
+        <Header />
+        <SectionTransition>
+          <HeroSection />
+        </SectionTransition>
+        <ScrollingBanner />
+        <SectionTransition delay={200}>
+          <BelieveSection />
+        </SectionTransition>
+
+        <Footer />
+      </main>
+    </SmoothScrollWrapper>
   );
 }
