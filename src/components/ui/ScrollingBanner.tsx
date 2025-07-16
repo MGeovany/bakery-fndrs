@@ -47,16 +47,16 @@ export const ScrollingBanner: React.FC = () => {
     },
   ];
 
-  // Duplicamos los items para crear el efecto de scroll infinito
-  const duplicatedItems = [...bannerItems, ...bannerItems];
+  // Triplicamos los items para crear un scroll más suave sin saltos
+  const triplicatedItems = [...bannerItems, ...bannerItems, ...bannerItems];
 
   return (
     <div className="bg-cream-100 overflow-hidden border-y border-blue-200 py-3 sm:py-4">
       <div
-        className="animate-scroll-infinite flex whitespace-nowrap"
-        style={{ width: "200%" }}
+        className="animate-scroll-seamless flex whitespace-nowrap"
+        style={{ width: "300%" }}
       >
-        {duplicatedItems.map((item, index) => {
+        {triplicatedItems.map((item, index) => {
           const IconComponent = item.icon;
           return (
             <div
