@@ -53,7 +53,7 @@ export const ScrollingBanner: React.FC = () => {
 
   return (
     <div className="bg-cream-100 overflow-hidden border-y border-blue-200 py-4">
-      <div className="animate-scroll flex whitespace-nowrap">
+      <div className="animate-scroll-infinite flex whitespace-nowrap">
         {duplicatedItems.map((item, index) => {
           const IconComponent = item.icon;
           return (

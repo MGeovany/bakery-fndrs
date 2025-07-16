@@ -35,6 +35,15 @@
   }
 }
 
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -46,6 +55,25 @@
 
 .animate-scroll {
   animation: scroll 30s linear infinite;
+}
+
+.animate-scroll-infinite {
+  animation: scroll-infinite 40s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  transform: translateZ(0);
+}
+
+/* Optimización para scroll suave */
+.animate-scroll-infinite > * {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Pausa la animación al hacer hover para mejor UX */
+.animate-scroll-infinite:hover {
+  animation-play-state: paused;
 }
 
 .animate-spin-slow {
@@ -71,6 +99,7 @@
 /* Lenis smooth scroll styles */
 html.lenis {
   height: auto;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .lenis.lenis-smooth {
@@ -79,6 +108,21 @@ html.lenis {
 
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
+}
+
+/* Ensure no horizontal overflow */
+body {
+  overflow-x: hidden;
+}
+
+/* Hide scrollbar on all containers */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 /* Header menu animations */
@@ -103,4 +147,88 @@ html.lenis {
 .menu-backdrop {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+}
+
+/* Hide scrollbar for all browsers */
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* WebKit browsers (Chrome, Safari, Edge) */
+}
+
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* WebKit browsers (Chrome, Safari, Edge) */
+}
+
+/* Ensure smooth scrolling still works */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for specific elements if needed */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #1e1e96 transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #1e1e96;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #0f0f7a;
+}
+
+/* Scroll progress bar styles */
+.scroll-progress-bar {
+  transition: width 0.1s ease-out;
+  will-change: width;
+}
+
+/* Smooth transitions for all elements */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize for smooth scrolling performance */
+html {
+  scroll-padding-top: 0;
+}
+
+/* Prevent text selection during scroll */
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Smooth focus transitions */
+*:focus {
+  outline: 2px solid #1e1e96;
+  outline-offset: 2px;
+  transition: outline 0.2s ease;
+}
+
+/* Hide focus outline for mouse users */
+.js-focus-visible *:focus:not(.focus-visible) {
+  outline: none;
 }
