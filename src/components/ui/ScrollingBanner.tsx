@@ -5,11 +5,9 @@ import {
   Wheat,
   Clock,
   Heart,
-  MapPin,
   Coffee,
   Cookie,
   PersonStanding,
-  Book,
   TowerControl,
 } from "lucide-react";
 
@@ -54,13 +52,16 @@ export const ScrollingBanner: React.FC = () => {
 
   return (
     <div className="bg-cream-100 overflow-hidden border-y border-blue-200 py-3 sm:py-4">
-      <div className="animate-scroll-infinite flex whitespace-nowrap">
+      <div
+        className="animate-scroll-infinite flex whitespace-nowrap"
+        style={{ width: "200%" }}
+      >
         {duplicatedItems.map((item, index) => {
           const IconComponent = item.icon;
           return (
             <div
               key={index}
-              className="flex items-center space-x-2 px-3 text-blue-700 sm:space-x-3 sm:px-4"
+              className="flex flex-shrink-0 items-center space-x-2 px-3 text-blue-700 sm:space-x-3 sm:px-4"
             >
               <IconComponent className="h-4 w-4 flex-shrink-0 text-blue-600 sm:h-5 sm:w-5" />
               <span className="font-outfit text-xs font-medium tracking-wide sm:text-sm">

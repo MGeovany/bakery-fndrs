@@ -104,11 +104,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
       </div>
 
       {/* Product Info */}
-      <div className="p-3 text-center sm:p-4">
+      <div className="p-3 sm:p-4">
         <h3 className="font-outfit mb-1 text-base font-bold text-blue-800 sm:mb-2 sm:text-lg">
           {product.name}
         </h3>
-        <p className="font-outfit mb-2 text-lg font-bold text-blue-900 sm:mb-3 sm:text-xl">
+        <p className="font-outfit mb-2 text-sm font-bold text-blue-900 sm:mb-3">
           {product.price}
         </p>
       </div>
@@ -122,7 +122,7 @@ export const BestSellersSection: React.FC = () => {
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-8 text-center sm:mb-12">
-          <h2 className="font-gloock mb-3 text-3xl font-bold text-blue-800 sm:mb-4 sm:text-4xl lg:text-5xl">
+          <h2 className="font-gloock mb-3 text-4xl font-bold text-blue-800 sm:mb-4 sm:text-4xl lg:text-5xl">
             Los Más Vendidos
           </h2>
           <p className="font-outfit mx-auto max-w-xl text-base text-blue-600 sm:text-lg">

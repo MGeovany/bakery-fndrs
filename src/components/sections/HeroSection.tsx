@@ -12,7 +12,7 @@ export const HeroSection: React.FC = () => {
             {/* Bread Image Placeholder */}
             <Image
               src={"/best-option.png"}
-              className="w-full max-w-sm rounded-xl border border-blue-600 sm:max-w-md lg:max-w-lg"
+              className="w-full max-w-sm rounded-xl border border-blue-600 sm:max-w-md md:h-[35rem] lg:max-w-lg"
               alt={"Panes Artesanales L'art du Pain"}
               width={500}
               height={500}
@@ -22,7 +22,7 @@ export const HeroSection: React.FC = () => {
 
           {/* Content */}
           <div className="order-2 text-center lg:order-none lg:text-left">
-            <h1 className="font-gloock mb-4 text-3xl leading-[1.1] font-bold text-blue-800 sm:mb-6 sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl">
+            <h1 className="font-gloock mb-4 text-6xl leading-[1.1] font-bold text-blue-800 sm:mb-6 sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl">
               Lo artesanal
               <br />
               es lo

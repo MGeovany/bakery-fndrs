@@ -22,7 +22,7 @@
   --color-cream-200: #f9f0e6;
 
   /* Animation for scrolling banner */
-  --animate-scroll: scroll 30s linear infinite;
+  --animate-scroll: scroll 20 linear infinite;
 }
 
 /* Custom animations */
@@ -36,10 +36,10 @@
 }
 
 @keyframes scroll-infinite {
-  0% {
+  from {
     transform: translateX(0%);
   }
-  100% {
+  to {
     transform: translateX(-50%);
   }
 }
@@ -58,11 +58,13 @@
 }
 
 .animate-scroll-infinite {
-  animation: scroll-infinite 40s linear infinite;
+  animation: scroll-infinite 15s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   perspective: 1000px;
   transform: translateZ(0);
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
 }
 
 /* Optimización para scroll suave */

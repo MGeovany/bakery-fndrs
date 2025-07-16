@@ -6,7 +6,6 @@ import {
   Instagram,
   Twitter,
   Linkedin,
-  MapPin,
   ArrowRight,
 } from "lucide-react";
 import { gsap } from "gsap";
@@ -148,13 +147,13 @@ export const Footer: React.FC = () => {
   return (
     <footer
       ref={footerRef}
-      className="bg-[#f5f1eb] px-4 py-12 sm:px-6 sm:py-16"
+      className="overflow-hidden bg-[#f5f1eb] px-4 py-12 sm:px-6 sm:py-16"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl overflow-hidden">
         {/* Main Footer Content */}
         <div
           ref={mainContentRef}
-          className="rounded-2xl bg-[#1e1e96] px-6 py-8 text-white sm:px-8 sm:py-12"
+          className="overflow-hidden rounded-2xl bg-[#1e1e96] px-6 py-8 text-white sm:px-8 sm:py-12"
         >
           <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-3">
             {/* Left Column - Navigation */}
@@ -165,21 +164,7 @@ export const Footer: React.FC = () => {
               <nav className="space-y-3 sm:space-y-4">
                 <a
                   href="/productos"
-                  className="font-outfit block text-base font-medium text-white transition-all duration-300 hover:translate-x-2 hover:text-blue-200 sm:text-lg"
-                  onMouseEnter={(e) => {
-                    gsap.to(e.currentTarget, {
-                      x: 8,
-                      duration: 0.3,
-                      ease: "power2.out",
-                    });
-                  }}
-                  onMouseLeave={(e) => {
-                    gsap.to(e.currentTarget, {
-                      x: 0,
-                      duration: 0.3,
-                      ease: "power2.out",
-                    });
-                  }}
+                  className="font-outfit block text-base font-medium text-white transition-colors hover:text-blue-200 sm:text-lg"
                 >
                   Panes & Pasteles
                 </a>
@@ -233,32 +218,14 @@ export const Footer: React.FC = () => {
               </p>
 
               {/* Email Signup */}
-              <div className="relative mx-auto max-w-xs sm:max-w-sm">
+              <div className="relative mx-auto max-w-sm">
                 <input
                   type="email"
                   placeholder="Email"
-                  className="font-outfit w-full rounded-lg border border-white/20 bg-white/10 px-3 py-2 text-sm text-white placeholder-white/70 backdrop-blur-sm focus:border-white/40 focus:ring-2 focus:ring-white/20 focus:outline-none sm:px-4 sm:py-3 sm:text-base"
+                  className="font-outfit w-full rounded-lg border border-white/20 bg-white/10 px-4 py-4 pr-12 text-base text-white placeholder-white/70 backdrop-blur-sm focus:border-white/40 focus:ring-2 focus:ring-white/20 focus:outline-none"
                 />
-                <button
-                  className="absolute top-1/2 right-2 -translate-y-1/2 rounded-md bg-white/20 p-2 text-white transition-all duration-300 hover:bg-white/30"
-                  onMouseEnter={(e) => {
-                    gsap.to(e.currentTarget, {
-                      scale: 1.1,
-                      x: 3,
-                      duration: 0.3,
-                      ease: "back.out(1.7)",
-                    });
-                  }}
-                  onMouseLeave={(e) => {
-                    gsap.to(e.currentTarget, {
-                      scale: 1,
-                      x: 0,
-                      duration: 0.3,
-                      ease: "power2.out",
-                    });
-                  }}
-                >
-                  <ArrowRight className="h-4 w-4" />
+                <button className="absolute top-1/2 right-2 -translate-y-1/2 rounded-md bg-white/20 p-2 text-white transition-all duration-300 hover:bg-white/30">
+                  <ArrowRight className="h-5 w-5" />
                 </button>
               </div>
             </div>
@@ -294,130 +261,43 @@ export const Footer: React.FC = () => {
           {/* Social Media Icons */}
           <div
             ref={socialIconsRef}
-            className="mt-8 flex justify-center space-x-4 sm:mt-12 sm:space-x-6"
+            className="mt-8 flex justify-center space-x-3 sm:mt-12 sm:space-x-4"
           >
             <a
               href="https://www.instagram.com/the.fndrs"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-white/10 p-2 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20 sm:p-3"
+              className="rounded-full bg-white/10 p-4 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
               aria-label="Síguenos en Instagram"
-              onMouseEnter={(e) => {
-                gsap.to(e.currentTarget, {
-                  scale: 1.2,
-                  rotation: -10,
-                  duration: 0.3,
-                  ease: "back.out(1.7)",
-                });
-              }}
-              onMouseLeave={(e) => {
-                gsap.to(e.currentTarget, {
-                  scale: 1,
-                  rotation: 0,
-                  duration: 0.3,
-                  ease: "power2.out",
-                });
-              }}
             >
-              <Instagram className="h-4 w-4 sm:h-5 sm:w-5" />
+              <Instagram className="h-4 w-4" />
             </a>
             <a
               href="https://www.linkedin.com/company/the-fndrs/"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-white/10 p-2 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20 sm:p-3"
+              className="rounded-full bg-white/10 p-4 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
               aria-label="Síguenos en LinkedIn"
-              onMouseEnter={(e) => {
-                gsap.to(e.currentTarget, {
-                  scale: 1.2,
-                  rotation: 10,
-                  duration: 0.3,
-                  ease: "back.out(1.7)",
-                });
-              }}
-              onMouseLeave={(e) => {
-                gsap.to(e.currentTarget, {
-                  scale: 1,
-                  rotation: 0,
-                  duration: 0.3,
-                  ease: "power2.out",
-                });
-              }}
             >
-              <Linkedin className="h-4 w-4 sm:h-5 sm:w-5" />
+              <Linkedin className="h-4 w-4" />
             </a>
             <a
               href="https://www.instagram.com/the.fndrs"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-white/10 p-2 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20 sm:p-3"
+              className="rounded-full bg-white/10 p-4 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
               aria-label="Síguenos en Facebook"
-              onMouseEnter={(e) => {
-                gsap.to(e.currentTarget, {
-                  scale: 1.2,
-                  rotation: 10,
-                  duration: 0.3,
-                  ease: "back.out(1.7)",
-                });
-              }}
-              onMouseLeave={(e) => {
-                gsap.to(e.currentTarget, {
-                  scale: 1,
-                  rotation: 0,
-                  duration: 0.3,
-                  ease: "power2.out",
-                });
-              }}
             >
-              <Facebook className="h-4 w-4 sm:h-5 sm:w-5" />
+              <Facebook className="h-4 w-4" />
             </a>
             <a
               href="https://www.instagram.com/the.fndrs"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-white/10 p-2 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20 sm:p-3"
+              className="rounded-full bg-white/10 p-4 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
               aria-label="Síguenos en Twitter"
-              onMouseEnter={(e) => {
-                gsap.to(e.currentTarget, {
-                  scale: 1.2,
-                  rotation: 10,
-                  duration: 0.3,
-                  ease: "back.out(1.7)",
-                });
-              }}
-              onMouseLeave={(e) => {
-                gsap.to(e.currentTarget, {
-                  scale: 1,
-                  rotation: 0,
-                  duration: 0.3,
-                  ease: "power2.out",
-                });
-              }}
             >
-              <Twitter className="h-4 w-4 sm:h-5 sm:w-5" />
-            </a>
-            <a
-              href="/sucursales"
-              className="rounded-full bg-white/10 p-3 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
-              aria-label="Encuentra nuestras sucursales"
-              onMouseEnter={(e) => {
-                gsap.to(e.currentTarget, {
-                  scale: 1.2,
-                  y: -5,
-                  duration: 0.3,
-                  ease: "back.out(1.7)",
-                });
-              }}
-              onMouseLeave={(e) => {
-                gsap.to(e.currentTarget, {
-                  scale: 1,
-                  y: 0,
-                  duration: 0.3,
-                  ease: "power2.out",
-                });
-              }}
-            >
-              <MapPin className="h-5 w-5" />
+              <Twitter className="h-4 w-4" />
             </a>
           </div>
         </div>

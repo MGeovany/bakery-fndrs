@@ -363,7 +363,7 @@ export const Header: React.FC = () => {
 
             {/* Logo - Always centered */}
             <div className="absolute left-1/2 -translate-x-1/2 transform">
-              <h1 className="font-serif text-lg text-blue-700 italic sm:text-xl lg:text-2xl">
+              <h1 className="text-center font-serif text-lg text-blue-700 italic sm:text-xl lg:text-2xl">
                 L&apos;art du Pain
               </h1>
               <p className="text-center text-xs text-blue-600 sm:text-sm">
