@@ -4,9 +4,10 @@ import { type Metadata } from "next";
 import { Geist, Outfit, Gloock } from "next/font/google";
 
 export const metadata: Metadata = {
-  title: "L'art du Pain - Panadería Francesa | Lo artesanal es lo nuestro",
+  title:
+    "L'art du Pain - Panadería Francesa en Honduras | Lo artesanal es lo nuestro",
   description:
-    "L'art du Pain - Panadería francesa artesanal desde 2014. Lo artesanal es lo nuestro. Descubre nuestros panes, pasteles y dulces hechos con amor y tradición francesa.",
+    "L'art du Pain - Panadería francesa artesanal en San Pedro Sula, Honduras desde 2014. Lo artesanal es lo nuestro. Descubre nuestros panes, pasteles y dulces hechos con amor y tradición francesa.",
   keywords: [
     "panadería francesa",
     "pan artesanal",
@@ -14,22 +15,26 @@ export const metadata: Metadata = {
     "dulces",
     "L'art du Pain",
     "panadería artesanal",
+    "San Pedro Sula",
+    "Honduras",
+    "panadería Honduras",
   ],
   authors: [{ name: "L'art du Pain" }],
   creator: "L'art du Pain",
   publisher: "L'art du Pain",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
   openGraph: {
-    title: "L'art du Pain - Panadería Francesa",
+    title: "L'art du Pain - Panadería Francesa en Honduras",
     description:
-      "Lo artesanal es lo nuestro desde 2014. Panadería francesa con tradición y calidad.",
+      "Lo artesanal es lo nuestro desde 2014. Panadería francesa con tradición y calidad en San Pedro Sula, Honduras.",
     type: "website",
-    locale: "es_ES",
+    locale: "es_HN",
   },
   twitter: {
     card: "summary_large_image",
-    title: "L'art du Pain - Panadería Francesa",
-    description: "Lo artesanal es lo nuestro desde 2014",
+    title: "L'art du Pain - Panadería Francesa en Honduras",
+    description:
+      "Lo artesanal es lo nuestro desde 2014 - San Pedro Sula, Honduras",
   },
 };
 

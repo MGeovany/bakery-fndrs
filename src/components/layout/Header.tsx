@@ -91,29 +91,29 @@ export const Header: React.FC = () => {
         title: "NUESTRAS PANADERÍAS",
         sections: [
           {
-            title: "CIUDAD DE MÉXICO",
+            title: "SAN PEDRO SULA",
             items: [
               {
                 label: "Centro Histórico",
                 href: "/sucursales/centro",
                 badge: "EST. 2014",
               },
-              { label: "Polanco", href: "/sucursales/polanco" },
-              { label: "Roma Norte", href: "/sucursales/roma" },
-              { label: "Condesa", href: "/sucursales/condesa" },
+              { label: "Multiplaza", href: "/sucursales/multiplaza" },
+              { label: "City Mall", href: "/sucursales/citymall" },
+              { label: "Zona Viva", href: "/sucursales/zonaviva" },
             ],
           },
           {
             title: "PRÓXIMAMENTE",
             items: [
               {
-                label: "Santa Fe",
-                href: "/sucursales/santa-fe",
+                label: "Tegucigalpa",
+                href: "/sucursales/tegucigalpa",
                 badge: "COMING SOON",
               },
               {
-                label: "Coyoacán",
-                href: "/sucursales/coyoacan",
+                label: "La Ceiba",
+                href: "/sucursales/laceiba",
                 badge: "COMING SOON",
               },
             ],
