@@ -19,9 +19,7 @@ export default function HomePage() {
       <ScrollProgress />
       <main className="bg-cream-200 min-h-screen">
         <Header />
-        <SectionTransition>
-          <HeroSection />
-        </SectionTransition>
+        <HeroSection />
         <ScrollingBanner />
         <SectionTransition delay={200}>
           <BestSellersSection />
