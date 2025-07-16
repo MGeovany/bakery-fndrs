@@ -79,6 +79,11 @@ export const HeroSection: React.FC = () => {
   }, [currentIndex]);
 
   const currentContent = heroContents[currentIndex] ?? heroContents[0];
+  
+  // Type safety check - this should never happen given our array structure
+  if (!currentContent) {
+    throw new Error('No hero content available');
+  }
 
   return (
     <section ref={sectionRef} className="relative min-h-[600vh]">
