@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { Button } from "../ui/Button";
-import { ShoppingCart } from "lucide-react";
+import { gsap } from "gsap";
 
 interface Product {
   id: string;
@@ -39,66 +38,59 @@ const products: Product[] = [
 
 interface ProductCardProps {
   product: Product;
+  onRef: (
+    el: HTMLDivElement | null,
+    setAnimated: (value: boolean) => void,
+  ) => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
+const ProductCard: React.FC<ProductCardProps> = ({ product, onRef }) => {
+  const [isAnimated, setIsAnimated] = useState(false);
+  const elementRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    if (isHovered && product.images.length > 1) {
-      // Delay before starting image rotation to let scale animation complete
-      const startDelay = setTimeout(() => {
-        const id = setInterval(() => {
-          setIsTransitioning(true);
-
-          // After fade out, change the image and fade in
-          setTimeout(() => {
-            setCurrentImageIndex(
-              (prevIndex) => (prevIndex + 1) % product.images.length,
-            );
-            setIsTransitioning(false);
-          }, 200); // Half of transition duration
-        }, 1500); // Cambia imagen cada 1.5 segundos
-        setIntervalId(id);
-      }, 400); // Wait 400ms for scale animation
-
-      return () => {
-        clearTimeout(startDelay);
-        if (intervalId) {
-          clearInterval(intervalId);
-        }
-      };
-    } else {
-      if (intervalId) {
-        clearInterval(intervalId);
-        setIntervalId(null);
-      }
-      // Volver a la primera imagen cuando no hay hover
-      if (!isHovered) {
-        setCurrentImageIndex(0);
-        setIsTransitioning(false);
-      }
+  const handleRef = (el: HTMLDivElement | null) => {
+    elementRef.current = el;
+    onRef(el, setIsAnimated);
+    if (el) {
+      // Configurar estado inicial
+      gsap.set(el, {
+        y: -100,
+        opacity: 0,
+        scale: 0.8,
+        rotation: Math.random() * 20 - 10, // Rotación aleatoria entre -10 y 10 grados
+      });
     }
-  }, [isHovered, product.images.length, intervalId]);
+  };
+
+  // Verificar si el elemento ha sido animado y restaurar propiedades si es necesario
+  useEffect(() => {
+    if (isAnimated && elementRef.current) {
+      // Asegurar que las propiedades finales se mantengan
+      gsap.set(elementRef.current, {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        rotation: 0,
+      });
+    }
+  }, [isAnimated]);
 
   return (
     <div
-      className="group relative overflow-hidden rounded-xl bg-transparent transition-all duration-300"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      ref={handleRef}
+      className="group relative overflow-hidden rounded-xl bg-transparent"
+      style={{
+        // Asegurar que las propiedades de GSAP no sean sobrescritas
+        willChange: "transform, opacity",
+      }}
     >
       {/* Image Container */}
       <div className="relative aspect-square overflow-hidden rounded-xl">
         <Image
-          src={`/items/${product.folder}/${product.images[currentImageIndex]}`}
+          src={`/items/${product.folder}/${product.images[0]}`}
           alt={product.name}
           fill
-          className={`object-cover transition-all duration-400 ease-out group-hover:scale-105 ${
-            isTransitioning ? "opacity-0" : "opacity-100"
-          }`}
+          className="object-cover transition-transform duration-300 ease-out group-hover:scale-105"
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
         />
       </div>
@@ -117,15 +109,110 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 };
 
 export const BestSellersSection: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const descriptionRef = useRef<HTMLParagraphElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const setAnimatedFunctions = useRef<((value: boolean) => void)[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Animación del título
+            if (titleRef.current) {
+              gsap.fromTo(
+                titleRef.current,
+                {
+                  y: 50,
+                  opacity: 0,
+                  scale: 0.9,
+                },
+                {
+                  y: 0,
+                  opacity: 1,
+                  scale: 1,
+                  duration: 0.8,
+                  ease: "power3.out",
+                },
+              );
+            }
+
+            // Animación de la descripción
+            if (descriptionRef.current) {
+              gsap.fromTo(
+                descriptionRef.current,
+                {
+                  y: 30,
+                  opacity: 0,
+                },
+                {
+                  y: 0,
+                  opacity: 1,
+                  duration: 0.6,
+                  delay: 0.3,
+                  ease: "power2.out",
+                },
+              );
+            }
+
+            // Animación de las tarjetas de productos
+            cardRefs.current.forEach((cardElement, index) => {
+              if (cardElement) {
+                gsap.to(cardElement, {
+                  y: 0,
+                  opacity: 1,
+                  scale: 1,
+                  rotation: 0,
+                  duration: 0.8,
+                  delay: 0.8 + index * 0.2, // Delay después del título y descripción
+                  ease: "bounce.out",
+                  onComplete: () => {
+                    // Marcar como animado cuando la animación termine
+                    if (setAnimatedFunctions.current[index]) {
+                      setAnimatedFunctions.current[index](true);
+                    }
+                  },
+                });
+              }
+            });
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      },
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <section className="bg-gray-50 px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
+    <section
+      ref={sectionRef}
+      className="bg-gray-50 px-4 py-12 sm:px-6 sm:py-16 lg:py-20"
+    >
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-8 text-center sm:mb-12">
-          <h2 className="font-gloock mb-3 text-4xl font-bold text-blue-800 sm:mb-4 sm:text-4xl lg:text-5xl">
+          <h2
+            ref={titleRef}
+            className="font-gloock mb-3 text-4xl font-bold text-blue-800 sm:mb-4 sm:text-4xl lg:text-5xl"
+          >
             Los Más Vendidos
           </h2>
-          <p className="font-outfit mx-auto max-w-xl text-base text-blue-600 sm:text-lg">
+          <p
+            ref={descriptionRef}
+            className="font-outfit mx-auto max-w-xl text-base text-blue-600 sm:text-lg"
+          >
             Nuestros productos más populares, elaborados con amor y tradición
             francesa.
           </p>
@@ -133,8 +220,15 @@ export const BestSellersSection: React.FC = () => {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+          {products.map((product, index) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              onRef={(el, setAnimated) => {
+                cardRefs.current[index] = el;
+                setAnimatedFunctions.current[index] = setAnimated;
+              }}
+            />
           ))}
         </div>
 
