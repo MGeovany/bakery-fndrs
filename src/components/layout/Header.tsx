@@ -319,7 +319,7 @@ export const Header: React.FC = () => {
             </button>
 
             {/* Desktop Navigation Menu */}
-            <nav className="hidden space-x-6 md:flex lg:space-x-8">
+            <nav className="hidden space-x-2 md:flex lg:space-x-8">
               {navItems.map((item) => (
                 <div
                   key={item.label}
@@ -328,7 +328,7 @@ export const Header: React.FC = () => {
                 >
                   <a
                     href={item.href}
-                    className={`font-outfit relative text-sm font-medium transition-colors lg:text-base ${
+                    className={`font-outfit relative text-sm font-medium transition-colors lg:text-sm ${
                       activeDropdown === item.label
                         ? "text-blue-900"
                         : "text-blue-700 hover:text-blue-900"
@@ -361,9 +361,9 @@ export const Header: React.FC = () => {
               ))}
             </nav>
 
-            {/* Logo */}
-            <div className="absolute left-1/2 -translate-x-1/2 transform md:relative md:left-auto md:translate-x-0">
-              <h1 className="font-serif text-2xl text-blue-700 italic">
+            {/* Logo - Always centered */}
+            <div className="absolute left-1/2 -translate-x-1/2 transform">
+              <h1 className="font-serif text-lg text-blue-700 italic sm:text-xl lg:text-2xl">
                 L&apos;art du Pain
               </h1>
               <p className="text-center text-xs text-blue-600 sm:text-sm">
@@ -374,7 +374,7 @@ export const Header: React.FC = () => {
             {/* User Actions */}
             <div className="flex items-center space-x-3 sm:space-x-4">
               <button className="text-blue-700 transition-colors hover:text-blue-900">
-                <User className="h-5 w-5 sm:h-6 sm:w-6" />
+                <User className="hidden h-5 w-5 sm:h-6 sm:w-6 md:block" />
               </button>
               <button className="text-blue-700 transition-colors hover:text-blue-900">
                 <ShoppingCart className="h-5 w-5 sm:h-6 sm:w-6" />

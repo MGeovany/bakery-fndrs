@@ -111,14 +111,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <p className="font-outfit mb-2 text-lg font-bold text-blue-900 sm:mb-3 sm:text-xl">
           {product.price}
         </p>
-        <Button
-          variant="secondary"
-          size="sm"
-          className="font-outfit group inline-flex items-center gap-2 border-blue-800 bg-transparent px-3 py-2 text-sm text-blue-800 hover:bg-blue-800 hover:text-white sm:px-4 sm:text-base"
-        >
-          <ShoppingCart className="h-3 w-3 sm:h-4 sm:w-4" />
-          Agregar
-        </Button>
       </div>
     </div>
   );

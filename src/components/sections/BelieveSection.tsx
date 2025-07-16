@@ -9,7 +9,7 @@ export const BelieveSection: React.FC = () => {
         <div className="grid grid-cols-1 items-start gap-8 sm:gap-12 lg:grid-cols-2">
           <div className="relative">
             <div className="mb-4 sm:mb-6">
-              <h2 className="font-outfit text-2xl leading-tight font-bold text-blue-800 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-8xl">
+              <h2 className="font-outfit text-2xl leading-[0.8] font-bold text-blue-800 sm:text-6xl md:text-6xl lg:text-6xl xl:text-8xl 2xl:text-8xl">
                 Creemos en el poder
               </h2>
             </div>
