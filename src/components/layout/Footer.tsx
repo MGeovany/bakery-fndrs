@@ -85,7 +85,7 @@ export const Footer: React.FC = () => {
 
               // Animación de los iconos sociales
               gsap.fromTo(
-                socialIconsRef.current?.children || [],
+                socialIconsRef.current?.children ?? [],
                 {
                   scale: 0,
                   y: 30,
@@ -146,20 +146,26 @@ export const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer ref={footerRef} className="bg-[#f5f1eb] px-6 py-16">
+    <footer
+      ref={footerRef}
+      className="bg-[#f5f1eb] px-4 py-12 sm:px-6 sm:py-16"
+    >
       <div className="mx-auto max-w-7xl">
         {/* Main Footer Content */}
         <div
           ref={mainContentRef}
-          className="rounded-2xl bg-[#1e1e96] px-8 py-12 text-white"
+          className="rounded-2xl bg-[#1e1e96] px-6 py-8 text-white sm:px-8 sm:py-12"
         >
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-3">
             {/* Left Column - Navigation */}
-            <div ref={leftColumnRef} className="space-y-6 text-center">
-              <nav className="space-y-4">
+            <div
+              ref={leftColumnRef}
+              className="space-y-4 text-center sm:space-y-6"
+            >
+              <nav className="space-y-3 sm:space-y-4">
                 <a
                   href="/productos"
-                  className="font-outfit block text-lg font-medium text-white transition-all duration-300 hover:translate-x-2 hover:text-blue-200"
+                  className="font-outfit block text-base font-medium text-white transition-all duration-300 hover:translate-x-2 hover:text-blue-200 sm:text-lg"
                   onMouseEnter={(e) => {
                     gsap.to(e.currentTarget, {
                       x: 8,
@@ -179,19 +185,19 @@ export const Footer: React.FC = () => {
                 </a>
                 <a
                   href="/nosotros"
-                  className="font-outfit block text-lg font-medium text-white transition-colors hover:text-blue-200"
+                  className="font-outfit block text-base font-medium text-white transition-colors hover:text-blue-200 sm:text-lg"
                 >
                   Nuestra Historia
                 </a>
                 <a
                   href="/sucursales"
-                  className="font-outfit block text-lg font-medium text-white transition-colors hover:text-blue-200"
+                  className="font-outfit block text-base font-medium text-white transition-colors hover:text-blue-200 sm:text-lg"
                 >
                   Nuestras Panaderías
                 </a>
                 <a
                   href="/equipo"
-                  className="font-outfit block text-lg font-medium text-white transition-colors hover:text-blue-200"
+                  className="font-outfit block text-base font-medium text-white transition-colors hover:text-blue-200 sm:text-lg"
                 >
                   Únete a Nuestro Equipo
                 </a>
@@ -201,37 +207,37 @@ export const Footer: React.FC = () => {
             {/* Center Column - Newsletter */}
             <div ref={centerColumnRef} className="text-center">
               {/* Cookie Icon */}
-              <div className="mb-6 flex justify-center">
+              <div className="mb-4 flex justify-center sm:mb-6">
                 <div
                   ref={cookieRef}
-                  className="flex h-16 w-16 items-center justify-center rounded-full bg-white"
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-white sm:h-16 sm:w-16"
                 >
-                  <div className="relative h-8 w-8 rounded-full bg-amber-600">
+                  <div className="relative h-6 w-6 rounded-full bg-amber-600 sm:h-8 sm:w-8">
                     {/* Cookie dots */}
-                    <div className="absolute top-1 left-2 h-1 w-1 rounded-full bg-amber-800"></div>
-                    <div className="absolute top-3 right-1 h-1 w-1 rounded-full bg-amber-800"></div>
-                    <div className="absolute bottom-2 left-1 h-1 w-1 rounded-full bg-amber-800"></div>
-                    <div className="absolute right-2 bottom-1 h-1 w-1 rounded-full bg-amber-800"></div>
+                    <div className="absolute top-1 left-1 h-1 w-1 rounded-full bg-amber-800 sm:left-2"></div>
+                    <div className="absolute top-2 right-1 h-1 w-1 rounded-full bg-amber-800 sm:top-3"></div>
+                    <div className="absolute bottom-1 left-1 h-1 w-1 rounded-full bg-amber-800 sm:bottom-2"></div>
+                    <div className="absolute right-1 bottom-1 h-1 w-1 rounded-full bg-amber-800 sm:right-2"></div>
                   </div>
                 </div>
               </div>
 
-              <h3 className="font-outfit mb-4 text-2xl font-bold text-white">
+              <h3 className="font-outfit mb-3 text-lg font-bold text-white sm:mb-4 sm:text-xl lg:text-2xl">
                 Regístrate y endulza tu bandeja de entrada.
               </h3>
 
-              <p className="font-outfit mb-6 text-white/90">
+              <p className="font-outfit mb-4 text-sm text-white/90 sm:mb-6 sm:text-base">
                 Sé el primero en conocer sobre nuevos lanzamientos de productos,
                 promociones especiales y sorpresas exclusivas que hemos horneado
                 solo para ti.
               </p>
 
               {/* Email Signup */}
-              <div className="relative mx-auto max-w-sm">
+              <div className="relative mx-auto max-w-xs sm:max-w-sm">
                 <input
                   type="email"
                   placeholder="Email"
-                  className="font-outfit w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/70 backdrop-blur-sm focus:border-white/40 focus:ring-2 focus:ring-white/20 focus:outline-none"
+                  className="font-outfit w-full rounded-lg border border-white/20 bg-white/10 px-3 py-2 text-sm text-white placeholder-white/70 backdrop-blur-sm focus:border-white/40 focus:ring-2 focus:ring-white/20 focus:outline-none sm:px-4 sm:py-3 sm:text-base"
                 />
                 <button
                   className="absolute top-1/2 right-2 -translate-y-1/2 rounded-md bg-white/20 p-2 text-white transition-all duration-300 hover:bg-white/30"
@@ -258,23 +264,26 @@ export const Footer: React.FC = () => {
             </div>
 
             {/* Right Column - Contact & Links */}
-            <div ref={rightColumnRef} className="space-y-6 text-center">
-              <nav className="space-y-4">
+            <div
+              ref={rightColumnRef}
+              className="space-y-4 text-center sm:space-y-6"
+            >
+              <nav className="space-y-3 sm:space-y-4">
                 <a
                   href="/contacto"
-                  className="font-outfit block text-lg font-medium text-white transition-colors hover:text-blue-200"
+                  className="font-outfit block text-base font-medium text-white transition-colors hover:text-blue-200 sm:text-lg"
                 >
                   Contáctanos
                 </a>
                 <a
                   href="/faq"
-                  className="font-outfit block text-lg font-medium text-white transition-colors hover:text-blue-200"
+                  className="font-outfit block text-base font-medium text-white transition-colors hover:text-blue-200 sm:text-lg"
                 >
                   FAQ
                 </a>
                 <a
                   href="/envios"
-                  className="font-outfit block text-lg font-medium text-white transition-colors hover:text-blue-200"
+                  className="font-outfit block text-base font-medium text-white transition-colors hover:text-blue-200 sm:text-lg"
                 >
                   Envíos
                 </a>
@@ -418,7 +427,7 @@ export const Footer: React.FC = () => {
           ref={bottomFooterRef}
           className="mt-8 flex flex-col items-center justify-between space-y-4 text-sm text-blue-800 lg:flex-row lg:space-y-0"
         >
-          <p className="font-outfit">© L'art du Pain 2025</p>
+          <p className="font-outfit">© L&apos;art du Pain 2025</p>
           <div className="flex space-x-6">
             <a
               href="/terminos"

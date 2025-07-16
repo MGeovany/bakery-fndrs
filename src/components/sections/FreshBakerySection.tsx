@@ -109,31 +109,31 @@ export const FreshBakerySection: React.FC = () => {
 
             {/* Floating cranberries */}
             <div
-              ref={(el) => el && (cranberriesRef.current[0] = el)}
+              ref={(el) => { if (el) cranberriesRef.current[0] = el; }}
               className="absolute -top-8 -left-12"
             >
               <div className="h-6 w-6 rounded-full bg-red-600 shadow-lg transition-transform duration-300 hover:scale-110"></div>
             </div>
             <div
-              ref={(el) => el && (cranberriesRef.current[1] = el)}
+              ref={(el) => { if (el) cranberriesRef.current[1] = el; }}
               className="absolute top-4 -right-16"
             >
               <div className="h-4 w-4 rounded-full bg-red-600 shadow-lg transition-transform duration-300 hover:scale-110"></div>
             </div>
             <div
-              ref={(el) => el && (cranberriesRef.current[2] = el)}
+              ref={(el) => { if (el) cranberriesRef.current[2] = el; }}
               className="absolute -bottom-12 -left-8"
             >
               <div className="h-5 w-5 rounded-full bg-red-600 shadow-lg transition-transform duration-300 hover:scale-110"></div>
             </div>
             <div
-              ref={(el) => el && (cranberriesRef.current[3] = el)}
+              ref={(el) => { if (el) cranberriesRef.current[3] = el; }}
               className="absolute -right-12 bottom-8"
             >
               <div className="h-6 w-6 rounded-full bg-red-600 shadow-lg transition-transform duration-300 hover:scale-110"></div>
             </div>
             <div
-              ref={(el) => el && (cranberriesRef.current[4] = el)}
+              ref={(el) => { if (el) cranberriesRef.current[4] = el; }}
               className="absolute right-20 -bottom-4"
             >
               <div className="h-4 w-4 rounded-full bg-red-600 shadow-lg transition-transform duration-300 hover:scale-110"></div>

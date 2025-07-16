@@ -99,16 +99,26 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           className={`object-cover transition-all duration-400 ease-out group-hover:scale-105 ${
             isTransitioning ? "opacity-0" : "opacity-100"
           }`}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
         />
       </div>
 
       {/* Product Info */}
-      <div className="p-4">
-        <h3 className="font-outfit text-lg font-bold text-blue-800">
+      <div className="p-3 text-center sm:p-4">
+        <h3 className="font-outfit mb-1 text-base font-bold text-blue-800 sm:mb-2 sm:text-lg">
           {product.name}
         </h3>
-        <p className="font-outfit text-md text-blue-800">{product.price}</p>
+        <p className="font-outfit mb-2 text-lg font-bold text-blue-900 sm:mb-3 sm:text-xl">
+          {product.price}
+        </p>
+        <Button
+          variant="secondary"
+          size="sm"
+          className="font-outfit group inline-flex items-center gap-2 border-blue-800 bg-transparent px-3 py-2 text-sm text-blue-800 hover:bg-blue-800 hover:text-white sm:px-4 sm:text-base"
+        >
+          <ShoppingCart className="h-3 w-3 sm:h-4 sm:w-4" />
+          Agregar
+        </Button>
       </div>
     </div>
   );
@@ -116,29 +126,29 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
 export const BestSellersSection: React.FC = () => {
   return (
-    <section className="bg-gray-50 px-6 py-20">
+    <section className="bg-gray-50 px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mb-12 text-center">
-          <h2 className="font-gloock mb-4 text-4xl font-bold text-blue-800 lg:text-5xl">
+        <div className="mb-8 text-center sm:mb-12">
+          <h2 className="font-gloock mb-3 text-3xl font-bold text-blue-800 sm:mb-4 sm:text-4xl lg:text-5xl">
             Los Más Vendidos
           </h2>
-          <p className="font-outfit mx-auto max-w-xl text-lg text-blue-600">
+          <p className="font-outfit mx-auto max-w-xl text-base text-blue-600 sm:text-lg">
             Nuestros productos más populares, elaborados con amor y tradición
             francesa.
           </p>
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
 
         {/* Shop All Button */}
-        <div className="mt-12 text-center">
-          <button className="group font-outfit text-md inline-flex items-center gap-2 font-bold text-blue-800 transition-colors hover:text-blue-600">
+        <div className="mt-8 text-center sm:mt-12">
+          <button className="group font-outfit inline-flex items-center gap-2 text-sm font-bold text-blue-800 transition-colors hover:text-blue-600 sm:text-base">
             Ver Todo
             <div className="flex h-4 w-4 items-center justify-center rounded-full border-2 border-blue-800 transition-colors group-hover:border-blue-600">
               <svg

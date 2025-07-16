@@ -1,16 +1,18 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { User, ShoppingCart } from "lucide-react";
+import { User, ShoppingCart, Menu, X } from "lucide-react";
 import { gsap } from "gsap";
 
 export const Header: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const megaMenuRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const menuContentRef = useRef<HTMLDivElement>(null);
   const menuItemsRef = useRef<HTMLDivElement[]>([]);
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const navItems = [
     {
@@ -205,6 +207,37 @@ export const Header: React.FC = () => {
     }
   };
 
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setActiveDropdown(null);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    setActiveDropdown(null);
+  };
+
+  // Close mobile menu on escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeMobileMenu();
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
   // Animaciones de entrada del menú
   useEffect(() => {
     if (
@@ -270,10 +303,23 @@ export const Header: React.FC = () => {
   return (
     <>
       <div ref={menuRef} onMouseLeave={handleMouseLeave} className="relative">
-        <header className="bg-cream-200 relative z-50 px-6 py-4">
+        <header className="bg-cream-200 relative z-50 px-4 py-4 sm:px-6">
           <div className="mx-auto flex max-w-7xl items-center justify-between">
-            {/* Navigation Menu */}
-            <nav className="flex space-x-8">
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMobileMenu}
+              className="text-blue-700 transition-colors hover:text-blue-900 md:hidden"
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+
+            {/* Desktop Navigation Menu */}
+            <nav className="hidden space-x-6 md:flex lg:space-x-8">
               {navItems.map((item) => (
                 <div
                   key={item.label}
@@ -282,7 +328,7 @@ export const Header: React.FC = () => {
                 >
                   <a
                     href={item.href}
-                    className={`font-outfit relative text-sm font-medium transition-colors ${
+                    className={`font-outfit relative text-sm font-medium transition-colors lg:text-base ${
                       activeDropdown === item.label
                         ? "text-blue-900"
                         : "text-blue-700 hover:text-blue-900"
@@ -316,32 +362,32 @@ export const Header: React.FC = () => {
             </nav>
 
             {/* Logo */}
-            <div className="absolute left-1/2 -translate-x-1/2 transform">
+            <div className="absolute left-1/2 -translate-x-1/2 transform md:relative md:left-auto md:translate-x-0">
               <h1 className="font-serif text-2xl text-blue-700 italic">
-                L'art du Pain
+                L&apos;art du Pain
               </h1>
-              <p className="text-center text-xs text-blue-600">
+              <p className="text-center text-xs text-blue-600 sm:text-sm">
                 PANADERÍA FRANCESA
               </p>
             </div>
 
             {/* User Actions */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3 sm:space-x-4">
               <button className="text-blue-700 transition-colors hover:text-blue-900">
-                <User className="h-6 w-6" />
+                <User className="h-5 w-5 sm:h-6 sm:w-6" />
               </button>
               <button className="text-blue-700 transition-colors hover:text-blue-900">
-                <ShoppingCart className="h-6 w-6" />
+                <ShoppingCart className="h-5 w-5 sm:h-6 sm:w-6" />
               </button>
             </div>
           </div>
         </header>
 
-        {/* Mega Menu Overlay */}
-        {activeDropdown && (
+        {/* Desktop Mega Menu Overlay */}
+        {activeDropdown && !isMobileMenuOpen && (
           <div
             ref={megaMenuRef}
-            className="absolute top-full right-0 left-0 z-40"
+            className="absolute top-full right-0 left-0 z-40 hidden md:block"
           >
             {/* Mega Menu Content */}
             <div
@@ -466,14 +512,70 @@ export const Header: React.FC = () => {
             </div>
           </div>
         )}
+
+        {/* Mobile Menu */}
+        {isMobileMenuOpen && (
+          <div
+            ref={mobileMenuRef}
+            className="absolute top-full right-0 left-0 z-40 md:hidden"
+          >
+            <div className="bg-cream-200 border-t border-blue-200 shadow-lg">
+              <div className="px-4 py-6">
+                {navItems.map((item, index) => (
+                  <div key={item.label} className="mb-6">
+                    <a
+                      href={item.href}
+                      className="font-outfit mb-3 block text-lg font-semibold text-blue-800"
+                      onClick={closeMobileMenu}
+                    >
+                      {item.label}
+                    </a>
+                    {item.dropdown && (
+                      <div className="ml-4 space-y-4">
+                        {item.dropdown.sections.map((section) => (
+                          <div key={section.title}>
+                            <h4 className="font-outfit mb-2 text-sm font-bold tracking-wide text-blue-700 uppercase">
+                              {section.title}
+                            </h4>
+                            <ul className="space-y-2">
+                              {section.items.map((menuItem) => (
+                                <li key={menuItem.label}>
+                                  <a
+                                    href={menuItem.href}
+                                    className="font-outfit block text-blue-600 transition-colors hover:text-blue-800"
+                                    onClick={closeMobileMenu}
+                                  >
+                                    {menuItem.label}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Dark Overlay Background - Separado para permitir clics */}
-      {activeDropdown && (
+      {activeDropdown && !isMobileMenuOpen && (
         <div
           ref={overlayRef}
           className="menu-backdrop fixed inset-0 z-30 bg-black/20"
           onClick={handleMouseLeave}
+        />
+      )}
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 z-30 bg-black/20 md:hidden"
+          onClick={closeMobileMenu}
         />
       )}
     </>
