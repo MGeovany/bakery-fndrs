@@ -12,3 +12,4 @@ export { Footer } from "./layout/Footer";
 export { HeroSection } from "./sections/HeroSection";
 export { BelieveSection } from "./sections/BelieveSection";
 export { FreshBakerySection } from "./sections/FreshBakerySection";
+export { FndrsSection } from "./sections/FndrsSection";

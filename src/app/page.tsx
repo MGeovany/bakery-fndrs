@@ -7,7 +7,9 @@ import {
   ScrollingBanner,
   Footer,
   ScrollProgress,
+  FndrsSection,
 } from "@/components";
+import { BestSellersSection } from "@/components/sections/BestSellersSection";
 import { SmoothScrollWrapper } from "@/components/layout/SmoothScrollWrapper";
 import { SectionTransition } from "@/components/ui/SectionTransition";
 
@@ -22,6 +24,9 @@ export default function HomePage() {
         </SectionTransition>
         <ScrollingBanner />
         <SectionTransition delay={200}>
+          <BestSellersSection />
+        </SectionTransition>
+        <SectionTransition delay={300}>
           <BelieveSection />
         </SectionTransition>
 

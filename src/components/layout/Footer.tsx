@@ -1,7 +1,14 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { Facebook, Instagram, Twitter, MapPin, ArrowRight } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Linkedin,
+  MapPin,
+  ArrowRight,
+} from "lucide-react";
 import { gsap } from "gsap";
 
 export const Footer: React.FC = () => {
@@ -281,30 +288,9 @@ export const Footer: React.FC = () => {
             className="mt-12 flex justify-center space-x-6"
           >
             <a
-              href="https://facebook.com/lartdupain"
-              className="rounded-full bg-white/10 p-3 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
-              aria-label="Síguenos en Facebook"
-              onMouseEnter={(e) => {
-                gsap.to(e.currentTarget, {
-                  scale: 1.2,
-                  rotation: 10,
-                  duration: 0.3,
-                  ease: "back.out(1.7)",
-                });
-              }}
-              onMouseLeave={(e) => {
-                gsap.to(e.currentTarget, {
-                  scale: 1,
-                  rotation: 0,
-                  duration: 0.3,
-                  ease: "power2.out",
-                });
-              }}
-            >
-              <Facebook className="h-5 w-5" />
-            </a>
-            <a
-              href="https://instagram.com/lartdupain"
+              href="https://www.instagram.com/the.fndrs"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full bg-white/10 p-3 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
               aria-label="Síguenos en Instagram"
               onMouseEnter={(e) => {
@@ -327,7 +313,59 @@ export const Footer: React.FC = () => {
               <Instagram className="h-5 w-5" />
             </a>
             <a
-              href="https://twitter.com/lartdupain"
+              href="https://www.linkedin.com/company/the-fndrs/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-white/10 p-3 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
+              aria-label="Síguenos en LinkedIn"
+              onMouseEnter={(e) => {
+                gsap.to(e.currentTarget, {
+                  scale: 1.2,
+                  rotation: 10,
+                  duration: 0.3,
+                  ease: "back.out(1.7)",
+                });
+              }}
+              onMouseLeave={(e) => {
+                gsap.to(e.currentTarget, {
+                  scale: 1,
+                  rotation: 0,
+                  duration: 0.3,
+                  ease: "power2.out",
+                });
+              }}
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a
+              href="https://www.instagram.com/the.fndrs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-white/10 p-3 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
+              aria-label="Síguenos en Facebook"
+              onMouseEnter={(e) => {
+                gsap.to(e.currentTarget, {
+                  scale: 1.2,
+                  rotation: 10,
+                  duration: 0.3,
+                  ease: "back.out(1.7)",
+                });
+              }}
+              onMouseLeave={(e) => {
+                gsap.to(e.currentTarget, {
+                  scale: 1,
+                  rotation: 0,
+                  duration: 0.3,
+                  ease: "power2.out",
+                });
+              }}
+            >
+              <Facebook className="h-5 w-5" />
+            </a>
+            <a
+              href="https://www.instagram.com/the.fndrs"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full bg-white/10 p-3 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
               aria-label="Síguenos en Twitter"
               onMouseEnter={(e) => {

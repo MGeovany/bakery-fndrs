@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const BelieveSection: React.FC = () => {
   return (
-    <section className="relative bg-[#f5f1eb] px-6 py-16">
+    <section className="relative m-1 rounded-2xl bg-[#f5f1eb] px-6 py-16">
       <div className="relative mx-auto max-w-6xl">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
           <div className="relative">
